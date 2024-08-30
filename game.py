@@ -36,7 +36,11 @@ class Game:
             self.__logic.play_turn(Input)
             Winner = self.__check_winner()
 
-        self.__display.show_winner(Winner)
+        if Winner == 'Draw':
+            self.__display.show_match_draw()
+        else:
+            self.__display.show_match_winner(Winner)
+
         self.__draw_board()
         
 

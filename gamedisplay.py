@@ -27,7 +27,12 @@ class GameDisplay:
             raise OccuppiedTile("Esta casilla ya está ocupada")
         
     
-    def show_winner(self, winner: Player) -> None:
+    def show_match_winner(self, winner: Player) -> None:
         """Muestra el ganador de la partida"""
+
+        pass
+
+    def show_match_draw(self) -> None:
+        """Muestra cuando la partida se empató"""
 
         pass

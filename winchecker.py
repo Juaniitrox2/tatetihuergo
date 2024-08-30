@@ -9,6 +9,12 @@ class WinChecker:
         tiles = self.__board.get_tiles()
         size = self.__board.get_size()
 
+        full_count = 0
+        for y in range(size[1]):
+            for x in range(size[0]):
+                if not tiles[x][y].is_empty():
+                    full_count += 1
+
         for y in range(size[1]):
             last_player = tiles[0][y].get_player()
             horizontal = True
@@ -29,5 +35,8 @@ class WinChecker:
             if vertical:
                 return last_player
         
-        return None
+        if full_count >= 8:
+            return "Draw"
+        else:
+            return None
 

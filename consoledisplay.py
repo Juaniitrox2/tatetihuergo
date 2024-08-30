@@ -47,6 +47,10 @@ class ConsoleDisplay(GameDisplay):
             except:
                 print('Por favor ingrese valores válidos')
 
-    def show_winner(self, player: Player) -> None:
+    def show_match_winner(self, player: Player) -> None:
         print('\n\n\n\033[0;31mPARTIDA TERMINADA\033[0m')
         print(f'El ganador del Ta-Te-Ti es:\nJugador [{player.get_tile_design()}]\n')
+    
+    def show_match_draw(self) -> None:
+        print('\n\n\n\033[0;31mPARTIDA TERMINADA\033[0m')
+        print(f'El resultado de la partida es:\nEMPATE\n')
