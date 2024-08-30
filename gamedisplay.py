@@ -21,10 +21,10 @@ class GameDisplay:
         tiles = self.__board.get_tiles()
 
         if (x < 0 or x > (board_size[0]-1)) or (y < 0 or y > (board_size[1]-1)):
-            raise InvalidTileCoordinate
+            raise InvalidTileCoordinate("La posición está fuera de coordenadas")
         
         if not tiles[x][y].is_empty():
-            raise OccuppiedTile
+            raise OccuppiedTile("Esta casilla ya está ocupada")
         
     
     def show_winner(self, winner: Player) -> None:
