@@ -6,10 +6,12 @@ class ConsoleDisplay:
         self.__board = board
 
     def draw(self):
-        text = ""
-        for x in range(len(self.__board.get_tiles())):
-            for tile in x:
-                text = tile.get_design() + " | "
+        text = "TABLERO ACTUAL:\n------------\n"
+        tiles = self.__board.get_tiles()
+        
+        for x in range(len(tiles)):
+            for tile in tiles[x]:
+                text = text + tile.get_design() + " "
 
             text = text + "\n"
 
