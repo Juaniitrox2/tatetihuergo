@@ -16,22 +16,29 @@ class Game:
     def start(self):
         """Inicia el juego del Ta-Te-Ti con la lógica y el display especificados"""
 
-        print('JUEGO DEL TA-TE-TI POR JUAN IGNACIO DRAGAN\n\n')
+        print(f'\nJUEGO DEL TA-TE-TI POR \033[0;33mJUAN IGNACIO DRAGAN\033[0m\nLab. Programación Orientada a Objetos\n')
 
         # setea jugadores
-        player1 = Player("X")
-        player2 = Player("O")
+        player1 = Player(f"\033[0;31mX\033[0m")
+        player2 = Player(f"\033[0;34mO\033[0m")
 
         self.__logic.add_player(player1)
         self.__logic.add_player(player2)
         
-        while self.__check_winner() == None:
+        Winner = self.__check_winner()
+        while Winner == None:
             self.__draw_board()
 
             Input = self.__get_input()
-            self.__logic.play_turn(Input)
+            if Input == 'q':
+                quit()
 
-            pass
+            self.__logic.play_turn(Input)
+            Winner = self.__check_winner()
+
+        self.__display.show_winner(Winner)
+        self.__draw_board()
+        
 
     def __draw_board(self):
         """Método interno para mostrar el tablero actual utilizando la implementación"""

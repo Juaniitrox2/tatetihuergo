@@ -20,4 +20,10 @@ class Tile:
         if self.__player_assigned == None:
             return '□'
         
-        return self.__player_assigned._design
+        return self.__player_assigned.get_tile_design()
+    
+    def is_empty(self) -> bool:
+        return self.get_player() == None
+    
+    def get_player(self) -> Player:
+        return self.__player_assigned
