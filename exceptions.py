@@ -9,3 +9,11 @@ class InvalidTileCoordinate(Exception):
 class GameFull(Exception):
     def __init__(self, message):
         self.message = message
+
+class GameStarted(Exception):
+    def __init__(self, message):
+        self.message = message
+
+class GameEmpty(Exception):
+    def __init__(self, message):
+        self.message = message

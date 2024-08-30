@@ -6,7 +6,7 @@ class Tile:
     def __init__(self):
         self.__player_assigned = None
 
-    def assign_player(self, player: Player):
+    def assign_player(self, player: Player | None):
         """Asigna un jugador a esta casilla. Por defecto el valor es nulo
         
             Args:
