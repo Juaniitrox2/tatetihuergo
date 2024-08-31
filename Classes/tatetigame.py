@@ -1,6 +1,6 @@
 from Classes.gamelogic import GameLogic
 from Classes.consoledisplay import ConsoleDisplay
-from Classes.winchecker import WinChecker
+from Classes.tatetiwinchecker import TatetiWinChecker
 from Classes.board import Board
 from Classes.player import Player
 from Classes.abstractgame import AbstractBoardGame
@@ -12,7 +12,7 @@ class TatetiGame(AbstractBoardGame):
         self.__board = Board(3, 3)
         self.__logic = GameLogic(self.__board)
         self.__display = ConsoleDisplay(self.__board)
-        self.__win_checker = WinChecker(self.__board)
+        self.__win_checker = TatetiWinChecker(self.__board)
 
     def start(self):
         """Inicia el juego del Ta-Te-Ti con la lógica y el display especificados"""

@@ -1,7 +1,8 @@
 from Classes.board import Board
 from Classes.player import Player
+from Classes.abstractwinchecker import WinCheckerAbstract
 
-class WinChecker:
+class TatetiWinChecker(WinCheckerAbstract):
     def __init__(self, board: Board) -> None:
         self.__board = board
 
