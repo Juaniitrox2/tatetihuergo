@@ -1,5 +1,5 @@
-from board import Board
-from player import Player
+from Classes.board import Board
+from Classes.player import Player
 
 class WinChecker:
     def __init__(self, board: Board) -> None:
@@ -22,7 +22,7 @@ class WinChecker:
                 if tiles[x][y].get_player() != last_player:
                     horizontal = False
             
-            if horizontal:
+            if horizontal and last_player != None:
                 return last_player
             
         for x in range(size[0]):
@@ -32,10 +32,23 @@ class WinChecker:
                 if tiles[x][y].get_player() != last_player:
                     vertical = False
             
-            if vertical:
+            if vertical and last_player != None:
                 return last_player
+
+        diag_size = size[0] if size[0] < size[1] else size[1]
+        for dir in range(2):
+            diagonal_player = tiles[0][0].get_player()
+            diagonal = True  
+            for x in range(diag_size):
+                y = (size[1] - 1 - x) if dir == 1 else x
+
+                if tiles[x][x].get_player() != diagonal_player:
+                    diagonal = False
+
+            if diagonal and diagonal_player != None:
+                return diagonal_player
         
-        if full_count >= 8:
+        if full_count >= (size[0]*size[1]):
             return "Draw"
         else:
             return None

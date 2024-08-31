@@ -1,8 +1,7 @@
-from tile import Tile
-from board import Board
-from player import Player
-from exceptions import InvalidTileCoordinate, OccuppiedTile
-from gamedisplay import GameDisplay
+from Classes.board import Board
+from Classes.player import Player
+from Classes.exceptions import InvalidTileCoordinate, OccuppiedTile
+from Classes.gamedisplay import GameDisplay
 
 class ConsoleDisplay(GameDisplay):
     def __init__(self, board: Board):
@@ -10,14 +9,13 @@ class ConsoleDisplay(GameDisplay):
         self.__board = board
 
     def draw(self):
-        board_text = "TABLERO ACTUAL:\n------------\n"
+        board_text = "\nTABLERO ACTUAL:\n------------\n"
         tiles = self.__board.get_tiles()
         size = self.__board.get_size()
         
         for y in range(size[1]):
             for x in range(size[0]):
                 tile = tiles[x][y]
-
                 board_text = board_text + tile.get_design() + " "
             board_text = board_text + "\n"
 

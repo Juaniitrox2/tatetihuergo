@@ -1,4 +1,6 @@
-from game import Game
+from Classes.tatetigame import TatetiGame
 
-newgame = Game()
+newgame = TatetiGame()
 newgame.start()
+
+#newgame.reset()

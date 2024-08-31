@@ -1,8 +1,9 @@
-from exceptions import InvalidTileCoordinate, OccuppiedTile
-from board import Board
-from player import Player
+from Classes.exceptions import InvalidTileCoordinate, OccuppiedTile
+from Classes.board import Board
+from Classes.player import Player
+from abc import ABC
 
-class GameDisplay:
+class GameDisplay(ABC):
     def __init__(self, board: Board) -> None:
         self.__board = board
 

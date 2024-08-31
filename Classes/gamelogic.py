@@ -1,6 +1,6 @@
-from board import Board
-from player import Player
-from exceptions import InvalidGivenPlayer, InvalidTileCoordinate, GameFull, GameStarted, GameEmpty
+from Classes.board import Board
+from Classes.player import Player
+from Classes.exceptions import InvalidGivenPlayer, InvalidTileCoordinate, GameFull, GameStarted, GameEmpty
 
 class GameLogic:
     """Lógica del juego del Ta-Te-Ti: Se encarga de asignar jugadores y jugadas"""

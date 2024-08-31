@@ -1,4 +1,4 @@
-from player import Player
+from Classes.player import Player
 
 class Tile:
     """Una de todas las casillas dentro del tablero"""

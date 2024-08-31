@@ -1,4 +1,4 @@
-from tile import Tile
+from Classes.tile import Tile
 
 class Board:
     """El tablero del Ta-Te-Ti, con una lista de casillas representadas en sub listas para simular ejes X e Y"""

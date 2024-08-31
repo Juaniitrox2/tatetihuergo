@@ -1,14 +1,15 @@
-from gamelogic import GameLogic
-from consoledisplay import ConsoleDisplay
-from winchecker import WinChecker
-from board import Board
-from player import Player
+from Classes.gamelogic import GameLogic
+from Classes.consoledisplay import ConsoleDisplay
+from Classes.winchecker import WinChecker
+from Classes.board import Board
+from Classes.player import Player
+from Classes.abstractgame import AbstractBoardGame
 
-class Game:
+class TatetiGame(AbstractBoardGame):
     """Juego del Ta-Te-Ti"""
 
     def __init__(self):
-        self.__board = Board()
+        self.__board = Board(3, 3)
         self.__logic = GameLogic(self.__board)
         self.__display = ConsoleDisplay(self.__board)
         self.__win_checker = WinChecker(self.__board)
@@ -43,6 +44,8 @@ class Game:
 
         self.__draw_board()
         
+    def reset(self):
+        self.__logic.reset()
 
     def __draw_board(self):
         """Método interno para mostrar el tablero actual utilizando la implementación"""
