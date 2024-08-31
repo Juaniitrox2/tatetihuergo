@@ -1,3 +1,5 @@
+"""Define la clase jugador, utilizada por todos los juegos de mesa"""
+
 class Player:
     """Un jugador de los dos presentes en el juego del Ta-Te-Ti"""
 

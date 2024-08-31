@@ -1,9 +1,15 @@
-from Classes.board import Board
+"""
+Define la clase de un display para la consola
+"""
+
+from Classes.abstractboard import Board
 from Classes.player import Player
 from Classes.exceptions import InvalidTileCoordinate, OccuppiedTile
 from Classes.gamedisplay import GameDisplay
 
 class ConsoleDisplay(GameDisplay):
+    """Una instancia de un display en consola para un juego"""
+
     def __init__(self, board: Board):
         super().__init__(board)
         self.__board = board
@@ -12,7 +18,7 @@ class ConsoleDisplay(GameDisplay):
         board_text = "\nTABLERO ACTUAL:\n------------\n"
         tiles = self.__board.get_tiles()
         size = self.__board.get_size()
-        
+
         for y in range(size[1]):
             for x in range(size[0]):
                 tile = tiles[x][y]
@@ -42,13 +48,11 @@ class ConsoleDisplay(GameDisplay):
                 print("Por favor ingrese una coordenada valida")
             except OccuppiedTile:
                 print("Esta casilla ya está ocupada")
-            except:
-                print('Por favor ingrese valores válidos')
 
-    def show_match_winner(self, player: Player) -> None:
+    def show_match_winner(self, winner: Player) -> None:
         print('\n\n\n\033[0;31mPARTIDA TERMINADA\033[0m')
-        print(f'El ganador del Ta-Te-Ti es:\nJugador [{player.get_tile_design()}]\n')
-    
+        print(f'El ganador del Ta-Te-Ti es:\nJugador [{winner.get_tile_design()}]\n')
+
     def show_match_draw(self) -> None:
         print('\n\n\n\033[0;31mPARTIDA TERMINADA\033[0m')
-        print(f'El resultado de la partida es:\nEMPATE\n')
+        print('El resultado de la partida es:\nEMPATE\n')

@@ -1,9 +1,10 @@
+#pylint: skip-file
 import unittest
 
-from exceptions import InvalidTileCoordinate, GameFull, GameEmpty, GameStarted
-from gamelogic import GameLogic
-from player import Player
-from board import Board
+from Classes.exceptions import InvalidTileCoordinate, GameFull, GameEmpty, GameStarted
+from Classes.tatetilogic import GameLogic
+from Classes.player import Player
+from Classes.tatetiboard import Board
 
 
 class TestGameLogic(unittest.TestCase):

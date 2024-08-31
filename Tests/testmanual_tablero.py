@@ -1,4 +1,6 @@
-from Classes.tatetigame import Game
+#pylint: skip-file
 
-nuevo = Game()
-Game.__draw_board()
+from Classes.tatetigame import TatetiGame
+
+nuevo = TatetiGame()
+TatetiGame.__draw_board()

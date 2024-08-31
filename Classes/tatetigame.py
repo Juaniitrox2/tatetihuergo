@@ -1,23 +1,27 @@
-from Classes.gamelogic import GameLogic
+"""Define la clase principal de una Instancia del juego del Ta-Te-Ti"""
+
+from Classes.tatetilogic import TatetiLogic
 from Classes.consoledisplay import ConsoleDisplay
 from Classes.tatetiwinchecker import TatetiWinChecker
-from Classes.board import Board
+from Classes.tatetiboard import TatetiBoard
 from Classes.player import Player
 from Classes.abstractgame import AbstractBoardGame
+
 
 class TatetiGame(AbstractBoardGame):
     """Juego del Ta-Te-Ti"""
 
     def __init__(self):
-        self.__board = Board(3, 3)
-        self.__logic = GameLogic(self.__board)
+        self.__board = TatetiBoard(3, 3)
+        self.__logic = TatetiLogic(self.__board)
         self.__display = ConsoleDisplay(self.__board)
         self.__win_checker = TatetiWinChecker(self.__board)
 
     def start(self):
         """Inicia el juego del Ta-Te-Ti con la lógica y el display especificados"""
 
-        print(f'\nJUEGO DEL TA-TE-TI POR \033[0;33mJUAN IGNACIO DRAGAN\033[0m\nLab. Programación Orientada a Objetos\n')
+        print(
+            f'\nJUEGO DEL TA-TE-TI POR \033[0;33mJUAN IGNACIO DRAGAN\033[0m\nLab. Programación Orientada a Objetos\n')
 
         # setea jugadores
         player1 = Player(f"\033[0;31mX\033[0m")
@@ -25,27 +29,27 @@ class TatetiGame(AbstractBoardGame):
 
         self.__logic.add_player(player1)
         self.__logic.add_player(player2)
-        
-        Winner = self.__check_winner()
-        while Winner == None:
+
+        winner = self.__check_winner()
+        while winner is None:
             self.__draw_board()
 
-            Input = self.__get_input()
-            if Input == 'q':
+            player_input = self.__get_input()
+            if player_input == 'q':
                 quit()
 
-            self.__logic.play_turn(Input)
-            Winner = self.__check_winner()
+            self.__logic.play_turn(player_input)
+            winner = self.__check_winner()
 
-        if Winner == 'Draw':
+        if winner == 'Draw':
             self.__display.show_match_draw()
         else:
-            self.__display.show_match_winner(Winner)
+            self.__display.show_match_winner(winner)
 
         self.__draw_board()
-        
+
     def reset(self):
-        self.__logic.reset()
+        self.__logic.reset(self.__board)
 
     def __draw_board(self):
         """Método interno para mostrar el tablero actual utilizando la implementación"""
@@ -54,7 +58,6 @@ class TatetiGame(AbstractBoardGame):
 
     def __get_input(self) -> tuple[int, int]:
         return self.__display.get_input(self.__logic.get_current_turn_player())
-    
+
     def __check_winner(self) -> (Player | None):
         return self.__win_checker.check_winner()
-        
