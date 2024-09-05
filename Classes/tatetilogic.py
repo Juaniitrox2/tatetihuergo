@@ -11,7 +11,6 @@ class TatetiLogic(GameLogic):
     """Lógica del juego del Ta-Te-Ti: Se encarga de asignar jugadores y jugadas"""
 
     def __init__(self, board: Board) -> None:
-        super().__init__(board)
         self.__board = board
         self.__players = []
         self.__player_turn_index = 0

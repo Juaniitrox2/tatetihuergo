@@ -49,6 +49,13 @@ class ConsoleDisplay(GameDisplay):
             except OccuppiedTile:
                 print("Esta casilla ya está ocupada")
 
+    def get_player_icon(self, index: int) -> str:
+        """Obtiene el ícono que van a utilizar los jugadores en la partida en base a un índice"""
+        player_icon = input(f"Jugador [{index}] ingrese el ícono con el que se representara:\n->: ")
+
+        player_icon = f"\033[0;3{index}m{player_icon[0]}\033[0m"
+        return player_icon
+
     def show_match_winner(self, winner: Player) -> None:
         print('\n\n\n\033[0;31mPARTIDA TERMINADA\033[0m')
         print(f'El ganador del Ta-Te-Ti es:\nJugador [{winner.get_tile_design()}]\n')

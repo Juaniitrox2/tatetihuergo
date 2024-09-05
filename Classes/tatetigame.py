@@ -24,8 +24,8 @@ class TatetiGame(AbstractBoardGame):
             f'\nJUEGO DEL TA-TE-TI POR \033[0;33mJUAN IGNACIO DRAGAN\033[0m\nLab. Programación Orientada a Objetos\n')
 
         # setea jugadores
-        player1 = Player(f"\033[0;31mX\033[0m")
-        player2 = Player(f"\033[0;34mO\033[0m")
+        player1 = Player(self.__display.get_player_icon(1))
+        player2 = Player(self.__display.get_player_icon(2))
 
         self.__logic.add_player(player1)
         self.__logic.add_player(player2)
