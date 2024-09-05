@@ -7,6 +7,8 @@ from Classes.tatetiboard import TatetiBoard
 from Classes.player import Player
 from Classes.abstractgame import AbstractBoardGame
 
+NOMBRE = "JUAN IGNACIO DRAGAN"
+MATERIA = "Lab. Programación Orientada a Objetos\n"
 
 class TatetiGame(AbstractBoardGame):
     """Juego del Ta-Te-Ti"""
@@ -20,8 +22,7 @@ class TatetiGame(AbstractBoardGame):
     def start(self):
         """Inicia el juego del Ta-Te-Ti con la lógica y el display especificados"""
 
-        print(
-            f'\nJUEGO DEL TA-TE-TI POR \033[0;33mJUAN IGNACIO DRAGAN\033[0m\nLab. Programación Orientada a Objetos\n')
+        print(f"\nJUEGO DEL TA-TE-TI POR \033[0;33m{NOMBRE}\033[0m\n{MATERIA}")
 
         # setea jugadores
         player1 = Player(self.__display.get_player_icon(1))

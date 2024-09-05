@@ -7,6 +7,8 @@ from Classes.player import Player
 from Classes.exceptions import InvalidTileCoordinate, OccuppiedTile
 from Classes.gamedisplay import GameDisplay
 
+AYUDA = "ingrese su jugada en el siguiente formato [X;Y]"
+
 class ConsoleDisplay(GameDisplay):
     """Una instancia de un display en consola para un juego"""
 
@@ -32,7 +34,7 @@ class ConsoleDisplay(GameDisplay):
 
         while True:
             try:
-                print(f'Jugador [{player.get_tile_design()}] ingrese su jugada en el siguiente formato [X;Y] (o escriba Q para salir):\n')
+                print(f'Jugador [{player.get_tile_design()}] {AYUDA} (o escriba Q para salir):\n')
                 player_input = input("->: ").split(';')
 
                 if player_input[0].lower() == 'q':

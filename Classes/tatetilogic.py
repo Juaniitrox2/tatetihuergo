@@ -4,7 +4,8 @@
 
 from Classes.abstractboard import Board
 from Classes.player import Player
-from Classes.exceptions import InvalidGivenPlayer, InvalidTileCoordinate, GameFull, GameStarted, GameEmpty
+from Classes.exceptions import InvalidGivenPlayer, InvalidTileCoordinate
+from Classes.exceptions import GameFull, GameStarted, GameEmpty
 from Classes.gamelogic import GameLogic
 
 class TatetiLogic(GameLogic):
