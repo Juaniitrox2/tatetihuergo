@@ -45,11 +45,11 @@ class TatetiWinChecker(WinCheckerAbstract):
                 return last_player
 
         diag_size = size[0] if size[0] < size[1] else size[1]
-        for dir in range(2):
+        for direccion in range(2):
             diagonal_player = tiles[0][0].get_player()
-            diagonal = True 
+            diagonal = True
             for x in range(diag_size):
-                y = (size[1] - 1 - x) if dir == 1 else x
+                y = (size[1] - 1 - x) if direccion == 1 else x
 
                 if tiles[x][x].get_player() != diagonal_player:
                     diagonal = False

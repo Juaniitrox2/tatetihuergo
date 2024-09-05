@@ -33,15 +33,17 @@ class TatetiLogic(GameLogic):
         self.__board.get_tiles()[x][y].assign_player(player)
 
     def add_player(self, player: Player):
+        """Agregar un jugador al juego"""
         if len(self.__players) + 1 > 2:
             raise GameFull('El juego está lleno')
 
         self.__players.append(player)
 
     def remove_player(self, player: Player):
+        """Remover un jugador de los actuales en el juego"""
         if self.__turns_played > 0:
             raise GameStarted("El juego ya comenzó")
-        
+
         if len(self.__players) <= 0:
             raise GameEmpty('No hay jugadores en el juego')
 
@@ -52,9 +54,9 @@ class TatetiLogic(GameLogic):
 
         if len(self.__players) < 2:
             raise GameEmpty("El juego no se puede empezar si no hay 2 jugadores")
-        
-        currentPlayer = self.get_current_turn_player()
-        self.set_player_on_tile(currentPlayer, player_input)
+
+        current_player = self.get_current_turn_player()
+        self.set_player_on_tile(current_player, player_input)
         self.__turns_played += 1
 
         #
@@ -62,15 +64,15 @@ class TatetiLogic(GameLogic):
             self.__player_turn_index = 1
         else:
             self.__player_turn_index = 0
-    
+
     def get_current_turn_player(self) -> Player:
         """Devuelve el jugador en el turno actual"""
         if len(self.__players) < 1:
             raise GameEmpty("No hay jugadores")
 
         return self.__players[self.__player_turn_index]
-    
+
     def reset(self, board: Board) -> None:
+        """Resetea los valores del juego."""
         self.__turns_played = 0
         self.__board = board
-

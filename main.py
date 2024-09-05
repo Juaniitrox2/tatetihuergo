@@ -1,3 +1,5 @@
+#pylint: skip-file
+
 from Classes.tatetigame import TatetiGame
 
 newgame = TatetiGame()
